@@ -1,0 +1,27 @@
+# 编译产物
+*.exe
+*.out
+*.o
+*.obj
+*.ilk
+*.pdb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Claude Code 本地配置（不共享）
+.claude/settings.local.json
+
+# 外部参考仓库
+ref-skills/
+
+# 用户画像（个人数据，不共享）
+.claude/skills/acm-coach/profile.md

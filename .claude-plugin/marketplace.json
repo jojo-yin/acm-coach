@@ -1,0 +1,23 @@
+{
+  "name": "acm-coach",
+  "owner": {
+    "name": "jojo-yin"
+  },
+  "plugins": [
+    {
+      "name": "acm-coach",
+      "description": "ACM/ICPC algorithm competition coaching skill — guided problem solving, systematic debugging, code review, and user habit tracking",
+      "version": "0.1.0",
+      "author": {
+        "name": "jojo-yin"
+      },
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/jojo-yin/acm-coach.git",
+        "path": ".claude/skills/acm-coach",
+        "ref": "main"
+      },
+      "homepage": "https://github.com/jojo-yin/acm-coach"
+    }
+  ]
+}
