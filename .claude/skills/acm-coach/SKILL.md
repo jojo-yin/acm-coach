@@ -1,7 +1,7 @@
 ---
 name: acm-coach
 description: >
-  Systematic problem-solving for algorithm competitions. Make sure to use this skill whenever the user mentions Codeforces, AtCoder, Luogu, nowcoder, POJ, HDU, LeetCode, ACM, ICPC, OI, or competitive programming — even if they don't explicitly ask for coaching. Also use when the user provides a problem statement with input/output specs and constraints, asks for help debugging WA/TLE/RE/MLE, needs time/space complexity analysis, wants algorithm selection guidance, or shares C++ code with competition patterns (e.g., `#include <bits/stdc++.h>`, `using namespace std`, `solve()` functions, multi-testcase loops). If someone seems stuck on a problem — whether they're getting WA, TLE, or just can't find the right approach — this skill should be the first thing you reach for. Use when the user mentions their CF handle, wants CF profile analysis or contest tracking, asks for a skill-level assessment, or wants to bind/unbind a competitive programming platform account.
+  Systematic problem-solving for algorithm competitions. Make sure to use this skill whenever the user mentions Codeforces, AtCoder, Luogu, nowcoder, POJ, HDU, LeetCode, ACM, ICPC, OI, or competitive programming — even if they don't explicitly ask for coaching. Also use when the user provides a problem statement with input/output specs and constraints, asks for help debugging WA/TLE/RE/MLE, needs time/space complexity analysis, wants algorithm selection guidance, or shares C++ code with competition patterns (e.g., `#include <bits/stdc++.h>`, `using namespace std`, `solve()` functions, multi-testcase loops). If someone seems stuck on a problem — whether they're getting WA, TLE, or just can't find the right approach — this skill should be the first thing you reach for. Use when the user mentions their CF handle, wants CF profile analysis or contest tracking, asks for a skill-level assessment, or wants to bind/unbind a competitive programming platform account. Also use when the user asks what this coach can do, needs a feature overview, or wants to see available commands.
 ---
 
 # ACM Coach
@@ -50,6 +50,25 @@ When you notice these thoughts, pause and work through Stage 1 before writing an
 ## Entry Point: Pick the Right Path
 
 The user's request determines which workflow to follow. Route to the correct path based on what they provide and what they want:
+
+**If the user asks what this coach can do** (e.g., "What can you do?" / 「你能做什么」「有什么功能」「怎么用」「help」), show this menu before asking what they need:
+
+```
+I can help with:
+
+| # | Path | What |
+|---|------|------|
+| A | Solve | Guide you through a problem step by step (no code dump) |
+| B | Debug | Find the exact bug in your WA/TLE/RE/MLE code |
+| C | Review | Audit your code for correctness, complexity, and edge cases |
+| D | Profile | Track your progress, analyze coding patterns, build your skill profile |
+| E | Team | ICPC 3-person-1-machine strategy and training advice |
+| F | CF | Analyze any Codeforces profile or bind your own for tracking |
+
+Which do you need?
+```
+
+Then wait for the user to pick. Do NOT list the trigger phrases for each path unless the user asks for them.
 
 ### Path A — Solve from scratch
 
