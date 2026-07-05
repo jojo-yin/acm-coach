@@ -25,3 +25,6 @@ ref-skills/
 
 # 用户画像（个人数据，不共享）
 .claude/skills/acm-coach/profile.md
+
+# 本地设计文档（不共享）
+docs/
