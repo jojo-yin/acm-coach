@@ -1,7 +1,7 @@
 ---
 name: acm-coach
 description: >
-  Systematic problem-solving for algorithm competitions. Make sure to use this skill whenever the user mentions Codeforces, AtCoder, Luogu, nowcoder, POJ, HDU, LeetCode, ACM, ICPC, OI, or competitive programming — even if they don't explicitly ask for coaching. Also use when the user provides a problem statement with input/output specs and constraints, asks for help debugging WA/TLE/RE/MLE, needs time/space complexity analysis, wants algorithm selection guidance, or shares C++ code with competition patterns (e.g., `#include <bits/stdc++.h>`, `using namespace std`, `solve()` functions, multi-testcase loops). If someone seems stuck on a problem — whether they're getting WA, TLE, or just can't find the right approach — this skill should be the first thing you reach for.
+  Systematic problem-solving for algorithm competitions. Make sure to use this skill whenever the user mentions Codeforces, AtCoder, Luogu, nowcoder, POJ, HDU, LeetCode, ACM, ICPC, OI, or competitive programming — even if they don't explicitly ask for coaching. Also use when the user provides a problem statement with input/output specs and constraints, asks for help debugging WA/TLE/RE/MLE, needs time/space complexity analysis, wants algorithm selection guidance, or shares C++ code with competition patterns (e.g., `#include <bits/stdc++.h>`, `using namespace std`, `solve()` functions, multi-testcase loops). If someone seems stuck on a problem — whether they're getting WA, TLE, or just can't find the right approach — this skill should be the first thing you reach for. Use when the user mentions their CF handle, wants CF profile analysis or contest tracking, asks for a skill-level assessment, or wants to bind/unbind a competitive programming platform account.
 ---
 
 # ACM Coach
@@ -138,6 +138,41 @@ Main uses:
 3. **Knowledge gap analysis**: which topics does the team collectively lack coverage on? Suggest division of study
 4. **Team profile**: update profile.md `## Team` section with member roles, strengths, weaknesses (useful for targeted training outside contests)
 
+### Path F — Codeforces Integration
+
+User wants CF profile analysis, contest tracking, or handle binding. Trigger phrases:
+
+| English | 中文 |
+|---------|------|
+| "Analyze my CF" / "Check my Codeforces" / "What's my CF rating" | 「分析我 CF」「查 CF 数据」 |
+| "Bind CF handle X" / "Set my CF to X" / "Unbind CF" | 「绑定 CF 号 X」「我 CF 是 X」「解绑 CF」 |
+| "What rating is [handle]?" / "Analyze [handle]'s profile" | 「看看 X 的数据」 |
+| "Recent contests" / "Upcoming contests on CF" | 「最近有什么比赛」「快开始的比赛」 |
+| "CF topic analysis" / "What am I weak at on CF?" / "My CF stats" | 「我 CF 哪个知识点弱」「CF 专题分析」 |
+
+When triggered, load **[references/cf-integration.md](references/cf-integration.md)** for API details and data interpretation. Then:
+
+1. **Identify the target handle:**
+   - If user says "my CF" / 「我 CF」 → use `bound:` from profile.md → `## Skill Level`
+   - If user provides a specific handle → use that (ad-hoc lookup, do NOT change bound handle)
+   - If no handle available and no bound → ask for one
+2. **Fetch data** using `python3 .claude/skills/acm-coach/scripts/cf_fetch.py`:
+   - `profile <handle>` for basic info and rating
+   - `rating <handle>` for rating trend over last 10 contests
+   - `submissions <handle>` for topic-level AC rates
+   - `contests` for upcoming and recent contests
+3. **Present analysis** following the template in cf-integration.md:
+   - Handle, current rating, rank, max rating
+   - Rating trend over last 5–10 contests
+   - Top 3 strong / top 3 weak topics from submission stats
+   - Activity level (active/inactive)
+   - Upcoming contests (next 3–5)
+4. **Handle binding:**
+   - "bind CF <handle>" / 「绑定 CF 号 <handle>」 → write `bound: <handle>` to `## Skill Level` in profile.md, then fetch + analyze
+   - "unbind CF" / 「解绑 CF」 → remove `bound:` line from profile.md
+   - Binding does NOT prevent ad-hoc lookup of other handles
+5. **After analysis:** if the queried handle matches the bound handle, update profile.md `## Skill Level` with fresh data (cf_rating, cf_max_rating, topic_hot, topic_cold, cf_updated date). Ad-hoc lookups of other handles stay in conversation only — do not write to profile.
+
 ### Path A: Full Workflow (Guide the user to the solution)
 
 User has a problem statement and wants to solve it. Your role is to **guide**, not to dump code. Lead them through all four stages — ask questions at each stage to get them thinking, rather than telling them the answer immediately.
@@ -158,6 +193,8 @@ User has code that produces wrong answer, times out, crashes, or exceeds memory.
 
 Do not silently rewrite the user's code. The user learns nothing from a code dump. Point to the bug, explain the principle, and let them fix it.
 
+After completing Path B, run an incremental profile update: see **Path D — D2 Skill Level Assessment**. If a CF handle is bound in profile.md, refresh CF data to keep the assessment current.
+
 ### Path C: Code Review (Audit, don't rewrite)
 
 User wants a second pair of eyes on their code. Give a structured review without taking over:
@@ -169,6 +206,8 @@ User wants a second pair of eyes on their code. Give a structured review without
 5. **Verdict** — overall assessment + ranked action items (most critical first).
 
 Report issues with specific line references. Say "Line 23: this loop runs O(n²) because `erase()` is O(n)" rather than rewriting it. If the user asks for the fix, provide it — but default to describing the issue and letting them improve it.
+
+After completing Path C, run an incremental profile update: see **Path D — D2 Skill Level Assessment**. If a CF handle is bound in profile.md, refresh CF data to keep the assessment current.
 
 ### Path D: Profile Building (Learn the user's habits)
 
@@ -223,6 +262,37 @@ When the user says "analyze my code" / "看看我的代码习惯" / "profile my 
 5. **Populate profile.md** with batch results, placing confirmed patterns directly in Active (batch counts as multi-session evidence)
 
 **Token budget for batch analysis**: Reading 20 files of ~100 lines each ≈ 2000 lines. Use parallel reads where possible. After reading, the report should be concise — the detailed data lives in profile.md, which stays under 50 lines.
+
+#### D2: Skill Level Assessment
+
+After every Path B/C session (and after batch analysis), update the `## Skill Level` section in **[profile.md](profile.md)**. Use the CF rank ladder as the universal scale:
+
+| Rank | Rating |
+|------|--------|
+| Newbie | < 1200 |
+| Pupil | 1200–1399 |
+| Specialist | 1400–1599 |
+| Expert | 1600–1899 |
+| Candidate Master | 1900–2099 |
+| Master | 2100–2299 |
+| International Master | 2300–2399 |
+| Grandmaster | 2400–2599 |
+| International Grandmaster | 2600–2999 |
+| Legendary Grandmaster | ≥ 3000 |
+
+**If a CF handle is bound and data is fresh (<7 days):** Use CF rating directly as the primary skill indicator. Cross-reference with behavioral observations — if CF rating and observed code quality mismatch significantly, flag it (e.g., "CF says Expert but complexity analysis is consistently wrong").
+
+**If no CF handle is bound:** Infer a rating range from observed behavior. Express as a range (e.g., "estimated Specialist–Expert / 1400–1800"). Key signals:
+- Frequent overflow, off-by-one, can only write brute-force → Newbie–Pupil
+- Algorithm choice usually correct but misses edge cases → Specialist–Expert
+- Clean code, solid complexity awareness, rare bugs → Expert–CM or above
+Narrow the range with each session as more data accumulates.
+
+**If CF data is stale (>7 days):** Fetch fresh data first. Use `python3 .claude/skills/acm-coach/scripts/cf_fetch.py profile <handle>`.
+
+**At session start:** Check profile.md `## Skill Level`. If the current bug matches a known pattern, mention it: "Your CF topic stats show weakness in DP — this fits that pattern."
+
+**Important — do NOT flag these as problems:** `#include <bits/stdc++.h>`, `using namespace std`, brace style, indentation, or naming conventions. These are standard in competitive programming and reflect personal preference, not skill level.
 
 #### Memory on Demand (user explicitly asks)
 
@@ -363,4 +433,5 @@ Load these when you need more depth on a specific topic:
 - **[references/debugging.md](references/debugging.md)** — Systematic debugging workflows, stress-test scripts, and error-specific checklists
 - **[references/pitfalls.md](references/pitfalls.md)** — C++ competition bug catalog with before/after examples and quick diagnostic checklist
 - **[references/teamwork.md](references/teamwork.md)** — ICPC team strategy: role division, machine time management, communication, contest phases
-- **[profile.md](profile.md)** — Your personal + team coding profile: tracked mistakes, strengths, weaknesses, style, and team member roles (auto-updated each session)
+- **[references/cf-integration.md](references/cf-integration.md)** — Codeforces API reference, rating rank ladder, tag-to-topic mapping, analysis output template
+- **[profile.md](profile.md)** — Your personal + team coding profile: tracked mistakes, strengths, weaknesses, style, skill level, CF handle binding, and team member roles (auto-updated each session)
