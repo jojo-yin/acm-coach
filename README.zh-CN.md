@@ -31,23 +31,36 @@ claude plugin marketplace add jojo-yin/acm-coach
 claude plugin install acm-coach@acm-coach
 ```
 
-### Git clone（VS Code）
+### Git clone + 项目级安装
+
+把 skill 装在你自己的 ACM 刷题文件夹里，不会影响其他项目。
 
 ```bash
+# 1. Clone 到任意位置（仅用于下载）
 git clone https://github.com/jojo-yin/acm-coach.git
-cd acm-coach
-code .
-```
 
-打开 Claude Code 面板（`Ctrl+Shift+P` → `Claude Code: Open`），`.claude/skills/` 下的 skill 自动加载。
+# 2. 把 skill 复制到你的刷题项目里
+mkdir -p ~/my-acm-practice/.claude/skills
+cp -r acm-coach/.claude/skills/acm-coach ~/my-acm-practice/.claude/skills/
 
-### Git clone（终端）
-
-```bash
-git clone https://github.com/jojo-yin/acm-coach.git
-cd acm-coach
+# 3. 进入自己的项目开始写题
+cd ~/my-acm-practice
 claude
 ```
+
+把 `~/my-acm-practice` 替换为你实际的 ACM 代码目录。Windows 用户用 `%USERPROFILE%\my-acm-practice\.claude\skills\`。
+
+### Git clone + 用户级安装
+
+如果想在所有项目中都能用这个 skill：
+
+```bash
+git clone https://github.com/jojo-yin/acm-coach.git
+mkdir -p ~/.claude/skills
+cp -r acm-coach/.claude/skills/acm-coach ~/.claude/skills/
+```
+
+更新方式：在 clone 的仓库中 `git pull`，然后重新执行上面的 `cp -r` 命令。
 
 ### 验证是否生效
 
@@ -90,15 +103,17 @@ Coach: 状态转移正确，复杂度 O(n²) 没问题。
 
 ```
 .claude/skills/acm-coach/
-├── SKILL.md              核心工作流和教练规则
+├── SKILL.md              核心工作流和教练规则（6 个路径 + 4 个阶段）
 ├── profile.md            个人编码画像（gitignored，自动更新）
 ├── references/
 │   ├── algorithms.md     28 个算法模板，附复杂度说明
 │   ├── debugging.md      系统化调试流程（WA/TLE/RE/MLE）
 │   ├── pitfalls.md       16 类 C++ 常见错误，附修改前后对比
-│   └── teamwork.md       ICPC 三人一机团队赛策略
+│   ├── teamwork.md       ICPC 三人一机团队赛策略
+│   └── cf-integration.md Codeforces API 参考 + rating 等级对照
 └── scripts/
-    └── stress.py         对拍脚本（内存运行，无临时文件）
+    ├── stress.py         对拍脚本（内存运行，无临时文件）
+    └── cf_fetch.py       Codeforces API 数据获取（rating、比赛、提交记录）
 ```
 
 ## 设计原则
