@@ -9,16 +9,17 @@ Claude Code Skill for algorithm competition coaching. Designed for Codeforces, A
 
 ## Features
 
-- **Guided problem solving.** Four-stage workflow (READ-THINK-CODE-VERIFY) — doesn't dump code, leads with questions.
-- **Systematic debugging.** Compile-reproduce first, then diagnose WA/TLE/RE/MLE with line-level precision. Minimal fixes only.
-- **Code review.** Complexity check, correctness audit, edge case enumeration. No nitpicking on naming or style.
-- **User profiling.** Tracks your recurring mistakes, strengths, and weaknesses across sessions. 2-session graduation gate prevents false patterns.
-- **Batch analysis.** Reads your solution directory, generates a report: top mistakes, strengths, and improvement suggestions.
-- **On-demand memory.** Say "remember this" and it writes to your profile, reminded in future sessions.
-- **Algorithm templates.** 28 templates covering data structures, graph theory, number theory, DP, strings, geometry, and search.
-- **C++ pitfalls catalog.** 16 common bugs with before/after examples, plus a diagnostic checklist.
-- **Team contest reference.** ICPC 3-person-1-machine strategies, role division, and training plans.
-- **Stress test script.** Cross-platform Python script, in-memory execution, zero temp files.
+| What you need | How the coach helps |
+|--------------|-------------------|
+| 🤔 Stuck on a problem | Four-stage workflow (READ → THINK → CODE → VERIFY) — analyzes constraints first, suggests algorithms, guides with questions instead of dumping code |
+| 🐛 Getting WA / TLE / RE | Diagnoses the exact line and root cause — no random guessing. Includes stress-test script for finding counterexamples |
+| ✅ Code finished, want a second opinion | Audits complexity, correctness, and edge cases. Won't nitpick `#include <bits/stdc++.h>` or brace style |
+| 📊 Want to know your weak spots | Auto-tracks bug patterns across sessions. Builds your skill profile (CF rank) and topic map. Graduation gate prevents one-off noise |
+| 📁 Have a folder of solutions | Batch reads your files, generates a report: top 3 mistakes, strengths, and what to focus on next |
+| 🔗 Have a Codeforces account | Bind your CF handle — fetches rating history, analyzes topic-level AC rates, lists upcoming contests |
+| 🧠 Need an algorithm template | 28 ready-to-copy C++ templates: DSU, SegTree, Dijkstra, KMP, LCA, SCC, fast pow, combinatorics, and more |
+| 🪤 Keep hitting the same C++ traps | 16-pitfall catalog with before/after examples: overflow, off-by-one, erase-while-iterating, unordered_map hacks, and more |
+| 👥 Training for ICPC with a team | 3-person-1-machine strategies: Think Tank model, role division, contest phases, paper-first debugging |
 
 ## Installation
 
