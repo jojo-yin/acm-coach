@@ -68,7 +68,7 @@ g++ -std=c++17 -O2 brute.cpp -o brute
 g++ -std=c++17 -O2 gen.cpp -o gen
 
 # 2. Run stress test (cross-platform Python script)
-python3 scripts/stress.py --sol ./solution --brute ./brute --gen ./gen --limit 1000
+python3 .claude/skills/acm-coach/scripts/stress.py --sol ./solution --brute ./brute --gen ./gen --limit 1000
 ```
 
 Or use the bash one-liner (Linux/Mac only, auto-cleans temp files):
