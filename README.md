@@ -31,23 +31,36 @@ claude plugin marketplace add jojo-yin/acm-coach
 claude plugin install acm-coach@acm-coach
 ```
 
-### Git clone (VS Code)
+### Git clone + project-level install
+
+Keep the skill inside your own ACM practice folder — won't affect other projects.
 
 ```bash
+# 1. Clone this repo anywhere (just for downloading)
 git clone https://github.com/jojo-yin/acm-coach.git
-cd acm-coach
-code .
-```
 
-Open the Claude Code panel (`Ctrl+Shift+P` → `Claude Code: Open`). Skills in `.claude/skills/` load automatically.
+# 2. Copy the skill into YOUR coding project
+mkdir -p ~/my-acm-practice/.claude/skills
+cp -r acm-coach/.claude/skills/acm-coach ~/my-acm-practice/.claude/skills/
 
-### Git clone (Terminal)
-
-```bash
-git clone https://github.com/jojo-yin/acm-coach.git
-cd acm-coach
+# 3. Go to your project and start coding
+cd ~/my-acm-practice
 claude
 ```
+
+Replace `~/my-acm-practice` with your actual ACM code directory. On Windows, use `%USERPROFILE%\my-acm-practice\.claude\skills\`.
+
+### Git clone + user-level install
+
+If you want the skill available globally (across all projects):
+
+```bash
+git clone https://github.com/jojo-yin/acm-coach.git
+mkdir -p ~/.claude/skills
+cp -r acm-coach/.claude/skills/acm-coach ~/.claude/skills/
+```
+
+To update: `git pull` in the cloned repo, then re-run the `cp -r` command above.
 
 ### Verify it works
 
@@ -90,15 +103,17 @@ The profile learns from every debugging and review session. A pattern must appea
 
 ```
 .claude/skills/acm-coach/
-├── SKILL.md              Core workflow and coaching rules
+├── SKILL.md              Core workflow and coaching rules (6 paths, 4 stages)
 ├── profile.md            Personal coding profile (gitignored, auto-updated)
 ├── references/
 │   ├── algorithms.md     28 algorithm templates with complexity notes
 │   ├── debugging.md      Systematic debugging workflow for WA/TLE/RE/MLE
 │   ├── pitfalls.md       16 common C++ bugs with before/after examples
-│   └── teamwork.md       ICPC 3-person team strategy reference
+│   ├── teamwork.md       ICPC 3-person team strategy reference
+│   └── cf-integration.md Codeforces API reference + rating rank ladder
 └── scripts/
-    └── stress.py         Cross-platform stress test (in-memory, no temp files)
+    ├── stress.py         Cross-platform stress test (in-memory, no temp files)
+    └── cf_fetch.py       Codeforces API data fetcher (profile, rating, contests)
 ```
 
 ## Design
