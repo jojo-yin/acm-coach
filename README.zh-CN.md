@@ -126,6 +126,27 @@ Coach: 状态转移正确，复杂度 O(n²) 没问题。
 
 开发中参考了 [anthropics/skills](https://github.com/anthropics/skills)、[OI Wiki](https://oi-wiki.org/)、[CP-Algorithms](https://cp-algorithms.com/)、[KACTL](https://github.com/kth-competitive-programming/kactl)、[cc-habits](https://www.npmjs.com/package/cc-habits)，以及 Codeforces、AtCoder、洛谷等社区的经验分享。详见 [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)。
 
+## 更新日志
+
+### v0.2.0 (2026-07-05)
+
+- **D2：自动能力评估。** 每次 debug/review 后自动更新 profile.md，使用 Codeforces rank 体系评估水平等级（Newbie → Legendary Grandmaster）。
+- **Path F：Codeforces 集成。** 绑定 CF 账号，获取 rating/rank/rating 走势，按 tag 统计 AC 率，查看即将开始的比赛——全部通过 CF 公开 API。
+- **`scripts/cf_fetch.py`。** 零依赖 Python 脚本，统一调用 CF API。
+- **`references/cf-integration.md`。** CF API 端点参考、rating 等级对照、tag 到知识点的映射指南。
+- **修复：** 安装指引重写——从「clone 后锁死在 acm-coach 目录」改为复制到自己的项目文件夹中使用。
+- **修复：** 对拍脚本路径在所有引用文件中统一。
+
+### v0.1.0 (2026-07-03)
+
+首次发布。
+
+- 四阶段解题流程（READ → THINK → CODE → VERIFY）。
+- 六个教练路径（解题 / 调试 / 审查 / 画像 / 团队 / CF）。
+- 28 个算法模板、16 类 C++ 陷阱排查清单、对拍脚本。
+- 渐进式加载：description 约 160 tokens，参考文件按需读取。
+- 用户画像：毕业门机制 + 衰减 + 墓碑。
+
 ## 许可证
 
 CC BY-SA 4.0。

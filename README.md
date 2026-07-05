@@ -130,6 +130,31 @@ Built with reference to [anthropics/skills](https://github.com/anthropics/skills
 
 CC BY-SA 4.0.
 
+## Changelog
+
+### v0.2.0 (2026-07-05)
+
+- **D2: Automatic skill level assessment.** After every debug/review session, profile.md now tracks your CF-equivalent skill level using the Codeforces rank ladder (Newbie → Legendary Grandmaster).
+- **Path F: Codeforces integration.** Bind a CF handle, fetch profile/rating history, get topic-level AC rate breakdown, and check upcoming contests — all via the public CF API.
+- **`scripts/cf_fetch.py`.** Zero-dependency Python script for Codeforces API data fetching.
+- **`references/cf-integration.md`.** CF API endpoint reference, rating rank ladder, and tag-to-topic mapping guide.
+- **Fix:** Install guide rewritten — clone + copy to your own project directory, no longer locked to the acm-coach repo folder.
+- **Fix:** Stress test script path unified across all reference files.
+
+### v0.1.0 (2026-07-03)
+
+Initial release.
+
+- Four-stage problem-solving workflow (READ → THINK → CODE → VERIFY).
+- Six coaching paths (Solve / Debug / Review / Profile / Team / CF).
+- 28 algorithm templates, 16 C++ pitfalls catalog, stress test script.
+- Progressive disclosure: description ~160 tokens, references load on demand.
+- User profiling with graduation gate, decay, and tombstones.
+
+## License
+
+CC BY-SA 4.0.
+
 ## Disclaimer
 
 This is a personal side project, shared in the hope it helps fellow competitive programmers. It's not professionally maintained — expect rough edges, and don't rely on it as your only source of truth. Feedback and contributions are welcome.
