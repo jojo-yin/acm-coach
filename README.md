@@ -9,17 +9,15 @@ Claude Code Skill for algorithm competition coaching. Designed for Codeforces, A
 
 ## Features
 
-| What you need | How the coach helps |
-|--------------|-------------------|
-| 🤔 Stuck on a problem | Four-stage workflow (READ → THINK → CODE → VERIFY) — analyzes constraints first, suggests algorithms, guides with questions instead of dumping code |
-| 🐛 Getting WA / TLE / RE | Diagnoses the exact line and root cause — no random guessing. Includes stress-test script for finding counterexamples |
-| ✅ Code finished, want a second opinion | Audits complexity, correctness, and edge cases. Won't nitpick `#include <bits/stdc++.h>` or brace style |
-| 📊 Want to know your weak spots | Auto-tracks bug patterns across sessions. Builds your skill profile (CF rank) and topic map. Graduation gate prevents one-off noise |
-| 📁 Have a folder of solutions | Batch reads your files, generates a report: top 3 mistakes, strengths, and what to focus on next |
-| 🔗 Have a Codeforces account | Bind your CF handle — fetches rating history, analyzes topic-level AC rates, lists upcoming contests |
-| 🧠 Need an algorithm template | 28 ready-to-copy C++ templates: DSU, SegTree, Dijkstra, KMP, LCA, SCC, fast pow, combinatorics, and more |
-| 🪤 Keep hitting the same C++ traps | 16-pitfall catalog with before/after examples: overflow, off-by-one, erase-while-iterating, unordered_map hacks, and more |
-| 👥 Training for ICPC with a team | 3-person-1-machine strategies: Think Tank model, role division, contest phases, paper-first debugging |
+| Scenario | Capability |
+|----------|-----------|
+| Stuck on a problem | Four-stage workflow (READ → THINK → CODE → VERIFY) — constraint analysis, algorithm selection, guided implementation |
+| Getting WA / TLE / RE | Systematic diagnosis with line-level precision. Stress-test script included for counterexample discovery |
+| Code needs review | Complexity audit, correctness check, edge case enumeration. Respects ACM conventions — no style nitpicking |
+| Want to track progress | Automatic profiling across sessions — recurring bugs, strengths, weaknesses, CF-equivalent skill level |
+| Have a solution folder | Batch reads your files, generates structured report: top mistakes, strengths, improvement priorities |
+| Use Codeforces | Bind a CF handle — fetches rating history, analyzes topic-level AC rates, lists upcoming contests |
+| Need a quick reference | 28 C++ algorithm templates (DSU, SegTree, Dijkstra, KMP, LCA, SCC, combinatorics) and 16 common pitfalls |
 
 ## Installation
 
@@ -147,7 +145,7 @@ CC BY-SA 4.0.
 Initial release.
 
 - Four-stage problem-solving workflow (READ → THINK → CODE → VERIFY).
-- Six coaching paths (Solve / Debug / Review / Profile / Team / CF).
+- Five coaching paths (Solve / Debug / Review / Profile / Team).
 - 28 algorithm templates, 16 C++ pitfalls catalog, stress test script.
 - Progressive disclosure: description ~160 tokens, references load on demand.
 - User profiling with graduation gate, decay, and tombstones.
