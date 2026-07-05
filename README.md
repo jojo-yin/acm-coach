@@ -131,6 +131,12 @@ CC BY-SA 4.0.
 
 ## Changelog
 
+### v0.2.1 (2026-07-05)
+
+- **Help menu.** Asking "what can you do?" now shows a 6-path menu (A–F), no need to guess trigger phrases.
+- **Features table.** Professionalized as a two-column `Scenario | Capability` layout, no emoji.
+- **Changelog.** Release notes now tracked in README (EN + CN).
+
 ### v0.2.0 (2026-07-05)
 
 - **D2: Automatic skill level assessment.** After every debug/review session, profile.md now tracks your CF-equivalent skill level using the Codeforces rank ladder (Newbie → Legendary Grandmaster).
