@@ -1,0 +1,46 @@
+{
+  "skill_name": "acm-coach",
+  "iteration": 1,
+  "configurations": [
+    {
+      "name": "with_skill",
+      "pass_rate": 0.929,
+      "total_assertions": 14,
+      "passed": 13,
+      "failed": 1,
+      "time_seconds": {"mean": 188.9, "stddev": 182.0},
+      "tokens": {"mean": 25694, "stddev": 5554},
+      "evals": [
+        {"name": "debug-wa-overflow", "pass_rate": 1.0, "passed": 4, "total": 4},
+        {"name": "solve-interval-cover", "pass_rate": 1.0, "passed": 5, "total": 5},
+        {"name": "code-review-knapsack", "pass_rate": 0.8, "passed": 4, "total": 5}
+      ]
+    },
+    {
+      "name": "without_skill",
+      "pass_rate": 0.714,
+      "total_assertions": 14,
+      "passed": 10,
+      "failed": 4,
+      "time_seconds": {"mean": 72.7, "stddev": 51.1},
+      "tokens": {"mean": 15797, "stddev": 3185},
+      "evals": [
+        {"name": "debug-wa-overflow", "pass_rate": 0.75, "passed": 3, "total": 4},
+        {"name": "solve-interval-cover", "pass_rate": 0.8, "passed": 4, "total": 5},
+        {"name": "code-review-knapsack", "pass_rate": 0.6, "passed": 3, "total": 5}
+      ]
+    }
+  ],
+  "delta": {
+    "pass_rate": "+0.215 (92.9% vs 71.4%)",
+    "time_seconds": "+116.2s slower with skill (profile.md update overhead in code-review)",
+    "tokens": "+9,897 more tokens with skill (richer coaching responses)"
+  },
+  "analyst_notes": [
+    "Skill 在 coaching_approach 断言上产生决定性差异：without_skill 直接给出完整代码替换，with_skill 引导用户自己修复",
+    "Skill 在 no_style_nitpicking 上正确抑制了对 bits/stdc++.h 的抱怨（ACM 标准做法），without_skill 犯了此错误",
+    "两个配置都遗漏了 mentions_endl_perf 断言：Skill 强调不挑剔风格，但 endl 是性能问题非风格问题，这是 Skill 中的灰色地带",
+    "code-review/with_skill 耗时 444s（远超 38s baseline），因为 agent 尝试更新 profile.md 导致大量额外工具调用",
+    "solve/with_skill 展示了完美的四阶段教学流程，从约束分析到让学生自己动手，是 Skill 效果的最佳范例"
+  ]
+}

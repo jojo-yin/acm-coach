@@ -2,6 +2,21 @@
 
 Reference implementations for common ACM algorithms. All code follows a consistent style: `#include <bits/stdc++.h>`, `using namespace std`, `using ll = long long`, struct-wrapped where possible for multi-testcase safety.
 
+## Contents
+
+- [Complexity Budget](#complexity-budget)
+- [Template Style](#template-style)
+- [Data Structures](#data-structures) — DSU, Fenwick Tree
+- [Graph Theory](#graph-theory) — Dijkstra, Floyd-Warshall, Topological Sort
+- [Number Theory](#number-theory) — Fast Pow, GCD/LCM, Modular Inverse, Prime Sieve
+- [Dynamic Programming](#dynamic-programming) — 0/1 Knapsack, LIS
+- [String](#string) — KMP, Rolling Hash
+- [More Data Structures](#more-data-structures) — Segment Tree (Lazy), Sparse Table, Trie
+- [More Graph Theory](#more-graph-theory) — LCA (Binary Lifting), SCC (Tarjan)
+- [More Number Theory](#more-number-theory) — Extended Euclidean, nCr mod Prime
+- [Search & Optimization](#search--optimization) — Binary Search
+- [Further Reading](#further-reading)
+
 ## Complexity Budget
 
 | n range | Acceptable Complexity | Common Algorithms |

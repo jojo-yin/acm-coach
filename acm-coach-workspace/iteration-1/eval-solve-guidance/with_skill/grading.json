@@ -1,0 +1,10 @@
+{
+  "run": "with_skill",
+  "expectations": [
+    {"text": "constraint_analysis", "passed": true, "evidence": "Stage 1 明确分析: n=2×10^5 → O(n log n) 或更快，排除 O(n^2)"},
+    {"text": "identifies_greedy", "passed": true, "evidence": "按右端点 r_i 升序排序 + 贪心选点策略，含具体步骤"},
+    {"text": "no_code_dump", "passed": true, "evidence": "仅给出注释骨架 ('// 1. 读入...')，未给出可编译的完整代码"},
+    {"text": "explains_proof", "passed": true, "evidence": "用交换论证法证明贪心正确性: '假设最优解选了更靠左的点，右移后覆盖不会变少'"},
+    {"text": "coaching_tone", "passed": true, "evidence": "含引导性问题、'现在轮到你了' 环节、留思考题和测试用例让用户自己验证"}
+  ]
+}

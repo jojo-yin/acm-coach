@@ -1,0 +1,10 @@
+{
+  "run": "without_skill",
+  "expectations": [
+    {"text": "constraint_analysis", "passed": true, "evidence": "指出 O(n log n) 对于 n ≤ 2×10^5 完全可行"},
+    {"text": "identifies_greedy", "passed": true, "evidence": "按右端点从小到大排序的贪心策略"},
+    {"text": "no_code_dump", "passed": true, "evidence": "仅给出伪代码/算法步骤描述，未给完整可编译代码"},
+    {"text": "explains_proof", "passed": true, "evidence": "解释了为什么选右端点是最贪心的选择"},
+    {"text": "coaching_tone", "passed": false, "evidence": "全篇为直接讲解模式，无引导性提问，无让学生自己动手的环节"}
+  ]
+}

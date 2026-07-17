@@ -1,0 +1,9 @@
+{
+  "run": "without_skill",
+  "expectations": [
+    {"text": "identifies_int_overflow", "passed": true, "evidence": "指出 ans * a[i] 两个 int 相乘，结果可达 10^18，在取模前已溢出"},
+    {"text": "coaching_approach", "passed": false, "evidence": "直接给出完整替换代码 'void solve() { ... }' 而非引导用户自己修复"},
+    {"text": "line_specific", "passed": true, "evidence": "提及乘法溢出所在行"},
+    {"text": "suggests_ll_fix", "passed": true, "evidence": "指出应使用 long long 或 1LL * ans * a[i]"}
+  ]
+}

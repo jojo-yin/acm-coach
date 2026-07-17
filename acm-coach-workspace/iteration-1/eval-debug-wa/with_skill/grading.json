@@ -1,0 +1,9 @@
+{
+  "run": "with_skill",
+  "expectations": [
+    {"text": "identifies_int_overflow", "passed": true, "evidence": "明确指出 ans 和 a[i] 都是 int，乘法在 int 范围内计算，中间结果在取模前溢出"},
+    {"text": "coaching_approach", "passed": true, "evidence": "定位 bug 并解释原因，询问用户确认题目描述，未直接重写完整代码"},
+    {"text": "line_specific", "passed": true, "evidence": "直接引用代码行: 'ans = ans * a[i] % 1000000007; // ❌ 溢出！'"},
+    {"text": "suggests_ll_fix", "passed": true, "evidence": "建议把 ans 改成 long long，并给出修复后的代码片段"}
+  ]
+}

@@ -1,7 +1,7 @@
 ---
 name: acm-coach
 description: >
-  Systematic problem-solving for algorithm competitions. Make sure to use this skill whenever the user mentions Codeforces, AtCoder, Luogu, nowcoder, POJ, HDU, LeetCode, ACM, ICPC, OI, or competitive programming — even if they don't explicitly ask for coaching. Also use when the user provides a problem statement with input/output specs and constraints, asks for help debugging WA/TLE/RE/MLE, needs time/space complexity analysis, wants algorithm selection guidance, or shares C++ code with competition patterns (e.g., `#include <bits/stdc++.h>`, `using namespace std`, `solve()` functions, multi-testcase loops). If someone seems stuck on a problem — whether they're getting WA, TLE, or just can't find the right approach — this skill should be the first thing you reach for. Use when the user mentions their CF handle, wants CF profile analysis or contest tracking, asks for a skill-level assessment, or wants to bind/unbind a competitive programming platform account. Also use when the user asks what this coach can do, needs a feature overview, or wants to see available commands.
+  Systematic coaching for algorithm competitions. Use whenever the user mentions Codeforces, AtCoder, Luogu, nowcoder, POJ, HDU, LeetCode, ACM, ICPC, OI, or competitive programming. Also use when the user provides a problem statement with constraints, asks for help debugging WA/TLE/RE/MLE, needs complexity analysis, wants algorithm guidance, or shares C++ code with competition patterns (bits/stdc++.h, using namespace std, solve() functions, multi-testcase loops). If someone is stuck — getting WA, TLE, or can't find the approach — this should be the first skill you reach for. Use for CF profile analysis, contest tracking, skill-level assessment, platform account binding, or feature overview.
 ---
 
 # ACM Coach
@@ -198,6 +198,8 @@ User has a problem statement and wants to solve it. Your role is to **guide**, n
 
 If the user is stuck at a particular stage (e.g., can't figure out the algorithm), give progressively more specific hints before revealing the approach. If they explicitly ask for the full implementation, provide it — but always with explanations of why each part works.
 
+**The detailed four-stage workflow (READ → THINK → CODE → VERIFY) with complexity tables, algorithm classification, and code templates is defined below in [The Four-Stage Workflow](#the-four-stage-workflow-path-a). Follow that structure for all Path A sessions.**
+
 ### Path B: Debugging Workflow (Diagnose, don't rewrite)
 
 User has code that produces wrong answer, times out, crashes, or exceeds memory. Your first instinct should be **diagnosis, not replacement**.
@@ -212,7 +214,7 @@ User has code that produces wrong answer, times out, crashes, or exceeds memory.
 
 Do not silently rewrite the user's code. The user learns nothing from a code dump. Point to the bug, explain the principle, and let them fix it.
 
-After completing Path B, run an incremental profile update: see **Path D — D2 Skill Level Assessment**. If a CF handle is bound in profile.md, refresh CF data to keep the assessment current.
+After completing Path B, do a **quick** profile touch (≤30s): append 1 line to Watching/Active in profile.md. Do NOT do a full D2 assessment or CF refresh — that is only for explicit "analyze my profile" requests. If you observed nothing new, skip the update entirely.
 
 ### Path C: Code Review (Audit, don't rewrite)
 
@@ -221,12 +223,12 @@ User wants a second pair of eyes on their code. Give a structured review without
 1. **Complexity check** — does the algorithm fit the constraints? State the actual complexity.
 2. **Correctness** — any logical flaws? Can you find a counterexample? Is the greedy choice proven? Are DP transitions complete?
 3. **Edge case audit** — n=1, n=max, all equal, negative values, overflow. List specific failing cases.
-4. **Code quality** — only flag issues that actually matter: unnecessary O(n) overhead (e.g., `map` where array works), missed optimizations that change complexity, logic that's hard to follow. Do NOT nitpick naming style, indentation, brace placement, or `using namespace std` — ACM code has its own conventions and personal taste varies.
+4. **Code quality** — only flag issues that actually matter: unnecessary O(n) overhead (e.g., `map` where array works), missed optimizations that change complexity, logic that's hard to follow, `endl` used in loops (flushes every time → TLE risk — this is a performance bug, not a style nit). Do NOT nitpick naming style, indentation, brace placement, or `using namespace std` — ACM code has its own conventions and personal taste varies. Also do NOT flag `#include <bits/stdc++.h>` — it's standard in competitive programming.
 5. **Verdict** — overall assessment + ranked action items (most critical first).
 
 Report issues with specific line references. Say "Line 23: this loop runs O(n²) because `erase()` is O(n)" rather than rewriting it. If the user asks for the fix, provide it — but default to describing the issue and letting them improve it.
 
-After completing Path C, run an incremental profile update: see **Path D — D2 Skill Level Assessment**. If a CF handle is bound in profile.md, refresh CF data to keep the assessment current.
+After completing Path C, do a quick profile touch: append 1 line to Watching/Active in profile.md. Do NOT do a full D2 assessment or CF refresh. If you observed nothing new, skip the update.
 
 ### Path D: Profile Building (Learn the user's habits)
 

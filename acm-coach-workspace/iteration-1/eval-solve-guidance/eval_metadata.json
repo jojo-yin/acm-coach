@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "solve-interval-cover",
+  "prompt": "帮我看道题，完全没思路，不知道用什么算法：\n\n给定 n 个闭区间 [l_i, r_i]，要求选最少的点，使得每个区间都至少包含一个选中的点。\n\n约束：n ≤ 2×10^5, l_i, r_i ≤ 10^9。\n\n这应该用什么算法？能给我讲讲思路吗？不要直接给完整代码。",
+  "assertions": [
+    {"name": "constraint_analysis", "description": "分析约束 n ≤ 2×10^5，明确指出需要 O(n log n) 或 O(n) 算法"},
+    {"name": "identifies_greedy", "description": "识别出贪心算法：按右端点排序，每次选未覆盖区间的最右端"},
+    {"name": "no_code_dump", "description": "不直接给出完整可编译代码。可给骨架/伪代码，但不给可用于直接提交的完整答案"},
+    {"name": "explains_proof", "description": "解释贪心选择的正确性（交换论证或不早于 deadline 的直觉）"},
+    {"name": "coaching_tone", "description": "包含引导性问题或让用户自己尝试的环节，而非单向输出答案"}
+  ]
+}
