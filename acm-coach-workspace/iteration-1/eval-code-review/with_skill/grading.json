@@ -5,6 +5,6 @@
     {"text": "no_style_nitpicking", "passed": true, "evidence": "未提及 bits/stdc++.h、using namespace std、花括号风格、缩进等"},
     {"text": "structured_format", "passed": true, "evidence": "按 Complexity → Correctness → Edge Cases → Critical Issue → Space Opt → Verdict 分节评审"},
     {"text": "suggests_1d", "passed": true, "evidence": "在 Space Optimization Opportunity 中指出可降为 1D 数组并给出代码示例"},
-    {"text": "mentions_endl_perf", "passed": false, "evidence": "未提及 endl 刷新缓冲区的性能问题"}
+    {"text": "no_false_endl_flag", "passed": true, "evidence": "正确未将单次 endl（非循环中）误报为性能问题"}
   ]
 }

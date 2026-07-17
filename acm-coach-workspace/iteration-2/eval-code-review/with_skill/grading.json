@@ -1,0 +1,10 @@
+{
+  "run": "with_skill",
+  "expectations": [
+    {"text": "flags_int_overflow", "passed": true, "evidence": "指出 v[i]≤10^9, n≤100 → 最大 10^11, 远超 int 的 2.1×10^9"},
+    {"text": "no_style_nitpicking", "passed": true, "evidence": "未抱怨 bits/stdc++.h、using namespace std、花括号等；对 >> 模板语法仅作技术备注"},
+    {"text": "structured_format", "passed": true, "evidence": "按 Complexity → Correctness → Critical Issue → Other → Verdict 分节"},
+    {"text": "suggests_1d", "passed": true, "evidence": "给出 1D 滚动数组优化代码"},
+    {"text": "no_false_endl_flag", "passed": true, "evidence": "正确未将代码末尾的单次 endl（非循环中）误报为性能问题"}
+  ]
+}

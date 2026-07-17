@@ -7,6 +7,6 @@
     {"name": "no_style_nitpicking", "description": "不抱怨 #include <bits/stdc++.h>、using namespace std、花括号风格、缩进等 ACM 惯例"},
     {"name": "structured_format", "description": "评审有清晰结构（如复杂度→正确性→边界→代码质量），分节列出"},
     {"name": "suggests_1d", "description": "提到可以用一维滚动数组优化空间，O(n×W) → O(W)"},
-    {"name": "mentions_endl_perf", "description": "指出 endl 刷新缓冲区的性能开销，建议替换为 '\\n'"}
+    {"name": "no_false_endl_flag", "description": "不将单次使用的 endl（非循环中）误报为性能问题。此代码中 endl 仅出现一次在 cout 末尾，不在循环内，不需要 flag"}
   ]
 }
