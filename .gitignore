@@ -23,8 +23,8 @@ Thumbs.db
 # 外部参考仓库
 ref-skills/
 
-# 用户画像（个人数据，不共享）
-.claude/skills/acm-coach/profile.md
+# 用户画像模板已纳入版本管理（.claude/skills/acm-coach/profile.md）
+# 实际使用时用户数据写入该文件，但模板本身需要版本控制
 
 # 本地设计文档（不共享）
 docs/superpowers/

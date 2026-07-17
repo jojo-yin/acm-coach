@@ -83,7 +83,7 @@ User has code that produces wrong answer, times out, crashes, or exceeds memory.
 
 Do not silently rewrite the user's code. The user learns nothing from a code dump. Point to the bug, explain the principle, and let them fix it.
 
-After completing Path B, do a **quick** profile touch (≤30s): append 1 line to Watching/Active in profile.md. Do NOT do a full D2 assessment or CF refresh — that is only for explicit "analyze my profile" requests. If you observed nothing new, skip the update entirely.
+After completing Path B, do a **quick** profile touch (≤30s): prepend 1-2 lines to Recent Activity in profile.md, and update Active Bugs/Weaknesses only if you spotted a clear pattern. Do NOT do a full D2 assessment or CF refresh — that is only for explicit "analyze my profile" requests. If you observed nothing new, skip the update entirely.
 
 ### Path C: Code Review (Audit, don't rewrite)
 
@@ -97,11 +97,11 @@ User wants a second pair of eyes on their code. Give a structured review without
 
 Report issues with specific line references. Say "Line 23: this loop runs O(n²) because `erase()` is O(n)" rather than rewriting it. If the user asks for the fix, provide it — but default to describing the issue and letting them improve it.
 
-After completing Path C, do a quick profile touch: append 1 line to Watching/Active in profile.md. Do NOT do a full D2 assessment or CF refresh. If you observed nothing new, skip the update.
+After completing Path C, do a quick profile touch: prepend 1-2 lines to Recent Activity in profile.md, and update Active Bugs/Weaknesses/NOT Yet Mastered only if you spotted a clear pattern. Do NOT do a full D2 assessment or CF refresh. If you observed nothing new, skip the update.
 
 ### Path D: Profile Building (Learn the user's habits)
 
-Two modes: **quick touch** (automatic, ≤30s after Path B/C — append 1 line to profile.md, skip if nothing new) and **full profile work** (user explicitly triggers). When the user asks to analyze habits, assess skill level, or remember something, load **[references/profile-guide.md](references/profile-guide.md)** for the full profile system: graduation gates, decay, tombstones, topic maps, skill level assessment (CF rank ladder), batch analysis, and memory-on-demand. The `## Team` section in profile.md is managed by Path E.
+Two modes: **quick touch** (automatic, ≤30s after Path B/C — prepend 1-2 lines to Recent Activity in profile.md, skip if nothing new) and **full profile work** (user explicitly triggers). When the user asks to analyze habits, assess skill level, or remember something, load **[references/profile-guide.md](references/profile-guide.md)** for the full profile system: graduation gates (Watching→Active→Tombstones), decay, NOT Yet Mastered tracking, topic maps, skill level assessment (CF rank ladder), batch analysis, and memory-on-demand. Profile entries should use natural language with concrete evidence (problem IDs, file names) rather than rigid [tag] formats — see profile-guide.md for examples. The `## Team` section in profile.md is managed by Path E.
 
 ## The Four-Stage Workflow (Path A)
 

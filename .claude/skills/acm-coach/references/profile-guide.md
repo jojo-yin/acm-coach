@@ -6,28 +6,40 @@ Profile design adapted from [cc-habits](https://www.npmjs.com/package/cc-habits)
 
 ## Incremental Update (every Path B/C session)
 
-Update **[profile.md](profile.md)** after each session. Rules:
+Update **[profile.md](profile.md)** after each session. **Write in natural language with concrete evidence** — Claude reads natural language just as well as rigid tags. Prefer "int overflow: dp sum up to 10^11, cf/2082/b" over "[int-overflow] (1x, 2026-07-18)". Reference specific problem IDs, file names, or line numbers when possible.
 
 **Graduation gate** (from cc-habits):
 - First time seeing a pattern → put in `## Watching` (not yet active)
 - Same pattern seen again in a later session → graduate to `## Active Bugs` / `## Active Strengths` / `## Active Weaknesses`
 
 **Confidence & decay** (from cc-habits):
-- Active patterns carry a count: `(N×, last: date)`. Increment N each time seen.
-- If a pattern hasn't been seen in 5+ sessions, add `⚠️` to indicate it may be stale
+- Track recurrence naturally: "3x this month" or "seen in cf/1.18, cf/2.11, cf/4.28"
+- If a pattern hasn't been seen in 5+ sessions, add `⚠️ stale?` to flag for review
 - Stale patterns confirmed as no longer relevant → move to `## Tombstones`
 
 **Tombstones** (from cc-habits):
 - User explicitly says "I don't do that anymore" → move to `## Tombstones` with reason
 - Tombstoned patterns are permanently blocked from re-appearing
 
+**NOT Yet Mastered**:
+- When code review reveals algorithms the user has in their repo but clearly copied/followed from a reference (not independently written), list them here
+- Distinguish from `## Active Weaknesses`: weakness = can't do it at all; NOT Yet Mastered = seen it but can't reproduce solo
+- Coach should avoid recommending solutions that depend on these algorithms unless the user explicitly wants to learn them
+
+**Recent Activity**:
+- After each session, prepend a 1-2 line summary to `## Recent Activity`
+- Format: date, what was worked on, key outcome or conscious decision
+- Example: `2026-07-06: AC CF 2234C (greedy+two-pointer). Fixed 4 bugs independently. Consciously skipped hard version O(n) optimization.`
+- This provides cross-session continuity — next session starts with context of where the user left off
+
 **Topic Map** (from CF Analytics):
-- Track problem-category performance with simple bars: `DP: ██░ | Graph: ███ | Greedy: █░░ | Math: ██░`
-- Update based on what you observe in their code
+- Track problem-category performance with simple bars: `█` = verified can solo, `░` = exposed but can't solo yet
+- `DP: █ | Graph: ░ | Greedy: █ | Math: ░ | String: ░ | DS: █ | Search: ██ | Constructive: ░`
+- Update based on observed code, not self-report
 
-**Token budget**: Entire profile.md must stay under ~200 tokens. Write in keyword shorthand. Only update if new. The `## Team` section is managed by Path E — don't touch it from Path D.
+**Conciseness**: Be economical — keyword shorthand is fine when it's clear. But don't sacrifice useful detail (problem reference, evidence) for token count. Real profiles that are slightly longer but evidence-rich are far more useful than token-optimized profiles that are vague.
 
-**At session start**: Quickly check profile.md. If current bug matches active pattern, mention it: "This is your 4th overflow bug — this is a recurring pattern for you."
+**At session start**: Quickly check profile.md — especially Recent Activity and Active Bugs. If current bug matches an active pattern, mention it: "This is your 4th overflow bug — this is a recurring pattern for you."
 
 ## Batch Analysis (user explicitly triggers)
 

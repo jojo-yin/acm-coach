@@ -1,0 +1,10 @@
+{
+  "run": "with_skill",
+  "expectations": [
+    {"text": "constraint_analysis", "passed": true, "evidence": "第1-9行约束分析表格，明确 n≤2×10^5 → O(n log n)，坐标≤10^9 → 不能用值域数组，必须基于排序"},
+    {"text": "identifies_greedy", "passed": true, "evidence": "第19-24行识别贪心算法，排除了 DP（状态空间爆炸），确认区间贪心经典模型"},
+    {"text": "no_code_dump", "passed": true, "evidence": "整个输出没有完整的可编译 C++ 代码，只有伪代码级的策略描述（按右端点排序→放点→跳过覆盖区间）"},
+    {"text": "explains_proof", "passed": true, "evidence": "第75-77行提到交换论证（exchange argument）；第38-43行用具体区间 [1,5] [2,3] 解释为什么放在右端点最划算"},
+    {"text": "coaching_tone", "passed": true, "evidence": "多个引导性问题：第29行「先别急着看答案」、第54行「手动模拟一下」、第71行「你能验证一下只用 1 个点行不行吗」、第77行「留给你的思考」——最后一步让用户自己尝试按左端点排序发现错误"}
+  ]
+}

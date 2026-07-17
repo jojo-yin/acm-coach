@@ -1,0 +1,9 @@
+{
+  "run": "with_skill",
+  "expectations": [
+    {"text": "identifies_int_overflow", "passed": true, "evidence": "第45-48行明确指出 ans*a[i] 中两个操作数都是 int，乘法在 int 精度下完成后再取模导致溢出，结果可达 10^18 超出 int 范围"},
+    {"text": "coaching_approach", "passed": false, "evidence": "第56-73行给出了完整重写的 solve() 函数（从 #include 到 main），违反了 Coaching Philosophy：即使算法完全错误也应解释问题让用户自己重写。输出在第56行之前已有充分诊断（算法错+溢出），不应再给完整替代代码"},
+    {"text": "line_specific", "passed": true, "evidence": "第42-48行用注释逐行标注了具体出错行：int ans = 1 和 ans = ans * a[i] % MOD，并分别说明了问题"},
+    {"text": "suggests_ll_fix", "passed": true, "evidence": "第52行明确建议使用 long long ans = 1 或 1LL * ans * a[i] % MOD 来修复溢出"}
+  ]
+}

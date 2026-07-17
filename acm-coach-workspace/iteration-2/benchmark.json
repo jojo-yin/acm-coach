@@ -1,0 +1,36 @@
+{
+  "skill_name": "acm-coach",
+  "iteration": 2,
+  "configurations": [
+    {
+      "name": "with_skill",
+      "pass_rate": 0.929,
+      "total_assertions": 14,
+      "passed": 13,
+      "failed": 1,
+      "time_seconds": {"mean": 118.9, "stddev": 73.3},
+      "tokens": {"mean": 20573, "stddev": 844},
+      "evals": [
+        {"name": "debug-wa-overflow", "pass_rate": 0.75, "passed": 3, "total": 4, "time_s": 67.8, "tokens": 20085},
+        {"name": "solve-interval-cover", "pass_rate": 1.0, "passed": 5, "total": 5, "time_s": 66.4, "tokens": 19873},
+        {"name": "code-review-knapsack", "pass_rate": 1.0, "passed": 5, "total": 5, "time_s": 222.6, "tokens": 21760}
+      ]
+    }
+  ],
+  "delta": {
+    "vs_iter1_with_skill": {
+      "pass_rate": "92.9% vs 92.9% (same — iter-1 later fixed to 100% after assertion correction)",
+      "time_seconds": "118.9s vs 188.9s — -37.0% faster (optimization effective)",
+      "tokens": "20,573 vs 25,694 — -19.9% fewer tokens (leaner SKILL.md)"
+    },
+    "code_review_speedup": "222.6s vs 444.0s — -49.9% (profile quick-touch replaced full D2 assessment)"
+  },
+  "analyst_notes": [
+    "速度优化成效显著：平均耗时 -37%，Token -20%，code-review 从 444s 降至 223s (-50%)",
+    "coaching_approach 在 debug-wa 中又失败了：agent 给出了完整代码重写（虽然算法确实完全错误）。commit 33daf6a 已加强 Coaching Philosophy，需在 iter-3 中验证",
+    "solve-interval-cover 完美展示了四阶段教学：约束分析→引导式推理→手动模拟→留给用户的思考题，5/5 全过",
+    "code-review 5/5 全过：正确识别 int overflow、不挑剔 bits/stdc++.h、结构化评审、建议 1D 优化、不误报单次 endl",
+    "iter-2 只有 with_skill（验证优化后性能），无 baseline 对照",
+    "debug-wa 的 coaching_approach 失败与 iter-1 模式一致——Path B 中 agent 仍倾向于直接给答案。33daf6a 补丁尚待验证"
+  ]
+}
