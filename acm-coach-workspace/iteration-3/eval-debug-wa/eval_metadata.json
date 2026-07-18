@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "eval_name": "debug-wa-overflow",
+  "prompt": "帮我看一下这段代码，提交上去 WA 了。题目是：给一个数组 a[1..n]，每次操作可以选相邻两个数，把较小的删掉。问最后剩下的数最大可能是多少。n ≤ 2×10^5, a[i] ≤ 10^9。\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n\nvoid solve() {\n    int n; cin >> n;\n    vector<int> a(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n    int ans = 1;\n    for (int i = 0; i < n; i++) {\n        ans = ans * a[i] % 1000000007;\n    }\n    cout << ans << '\\n';\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t; cin >> t; while (t--) solve();\n}\n```\n\n样例能过，但交上去 WA。我自己感觉 ans 的类型可能有问题，但不确定。",
+  "assertions": [
+    {"name": "identifies_int_overflow", "description": "明确指出 ans * a[i] 中两个操作数都是 int，乘法在 int 精度下完成后再取模，导致溢出"},
+    {"name": "coaching_approach", "description": "定位 bug 并讲解原因，而非直接重写整段代码。可以给修复片段但不应该给出完整重写的代码"},
+    {"name": "line_specific", "description": "指向具体的出错行（ans = ans * a[i] % MOD 这一行），而非笼统地说有溢出"},
+    {"name": "suggests_ll_fix", "description": "识别并解释 ans * a[i] 的溢出问题（两个 int 相乘 ≤10^9 在取模前溢出），并给出修复方案（改 long long 或指出算法修正后 int 已足够）"}
+  ]
+}

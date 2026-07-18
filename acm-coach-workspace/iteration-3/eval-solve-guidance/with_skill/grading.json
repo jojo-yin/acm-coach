@@ -1,0 +1,10 @@
+{
+  "run": "with_skill",
+  "expectations": [
+    {"text": "constraint_analysis", "passed": true, "evidence": "Stage 1 明确分析 n≤2×10^5→O(n log n)，坐标≤10^9→不能用值域数组，只能基于排序"},
+    {"text": "identifies_greedy", "passed": true, "evidence": "虽未显式说出「贪心」二字，但问题1-3通过 Socratic 式引导明确指向「按右端点排序、在 r_i 处放点、跳过已覆盖区间」的贪心策略"},
+    {"text": "no_code_dump", "passed": true, "evidence": "整个响应没有一行 C++ 代码，纯引导式提问"},
+    {"text": "explains_proof", "passed": false, "evidence": "响应全为引导性问题，未提供贪心正确性的任何解释（交换论证或直觉论证）。用户问「能给我讲讲思路吗」，纯提问式引导不足以满足对 proof 的需求"},
+    {"text": "coaching_tone", "passed": true, "evidence": "三个递进式引导问题 + 提示 + 「想通这些问题答案就呼之欲出了」「要不要先试试回答第一个问题」——全程 Socratic 教学风格"}
+  ]
+}

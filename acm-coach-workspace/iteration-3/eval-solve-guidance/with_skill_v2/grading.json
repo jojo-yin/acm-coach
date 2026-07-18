@@ -1,0 +1,10 @@
+{
+  "run": "with_skill_v2",
+  "expectations": [
+    {"text": "constraint_analysis", "passed": true, "evidence": "Stage 1 明确分析 n≤2×10^5→O(n log n)，O(n²) 绝对 TLE，复杂度预算清晰"},
+    {"text": "identifies_greedy", "passed": true, "evidence": "第40-48行明确命名「按右端点排序的区间选点」贪心算法，给出 4 步做法"},
+    {"text": "no_code_dump", "passed": true, "evidence": "第82-93行仅给出伪代码（7-8行），非可编译 C++，无 #include 和 main 函数"},
+    {"text": "explains_proof", "passed": true, "evidence": "第51-65行完整交换论证：设 G={g₁,g₂,...} 和 OPT={o₁,o₂,...}，归纳证明 o_k≤g_k 且贪心覆盖范围不短于最优，因此 |G|≤|OPT|"},
+    {"text": "coaching_tone", "passed": true, "evidence": "第23行先问引导问题（「你先想想，然后我接着讲」），然后讲解答案和证明。第124行以「有什么疑问可以接着问」收尾。提问+讲解平衡得当"}
+  ]
+}
