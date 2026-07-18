@@ -165,6 +165,7 @@ Now that you know your complexity budget, classify the problem and design the al
 2. Compare with alternative approaches — why is O(n²) not acceptable here? What data structure upgrade unlocks the better complexity? Making this comparison explicit helps catch wrong algorithm choices early.
 3. List every edge case you can think of: n=1, n=max, all values equal, all zero, strictly increasing/decreasing, negative values, overflow scenarios
 4. Dry-run your algorithm on the smallest sample input by hand — draw the state at each step. If the dry-run matches expected output, proceed to code. If the user is describing the algorithm verbally, do NOT jump to code yet — stay in Stage 2 and ask them to dry-run first.
+5. **Draw when stuck** — if the user can't visualize the structure (interval layout, graph topology, DP table, geometric configuration), draw an inline ASCII diagram. For geometry that needs precision, output an SVG block. Load **[references/visualization.md](references/visualization.md)** for templates. A 3-line sketch is worth 100 words.
 
 ### Stage 3: CODE — Structured Implementation
 
@@ -228,6 +229,7 @@ Load these when you need more depth on a specific topic:
 - **[references/algorithms.md](references/algorithms.md)** — Algorithm templates with complexity reference, common pitfalls, and consistent C++ style
 - **[references/debugging.md](references/debugging.md)** — Systematic debugging workflows, stress-test scripts, and error-specific checklists
 - **[references/pitfalls.md](references/pitfalls.md)** — C++ competition bug catalog with before/after examples and quick diagnostic checklist
+- **[references/visualization.md](references/visualization.md)** — ASCII Art + SVG diagram templates for geometry, graph, interval, and DP problems. Load when a picture would clarify the structure.
 - **[references/teamwork.md](references/teamwork.md)** — ICPC team strategy: role division, machine time management, communication, contest phases
 - **[references/cf-integration.md](references/cf-integration.md)** — Codeforces API reference, rating rank ladder, tag-to-topic mapping, analysis output template
 - **[profile.md](profile.md)** — Your personal + team coding profile: tracked mistakes, strengths, weaknesses, style, skill level, CF handle binding, and team member roles (auto-updated each session)
